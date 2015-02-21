@@ -5,7 +5,6 @@ class CreateStatusUpdates < ActiveRecord::Migration
       t.string :user
       t.integer :number_of_likes
 
-      t.timestamps null: false
     end
   end
 end
