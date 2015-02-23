@@ -1,0 +1,28 @@
+<h2>STATUS UPDATES</h2>
+
+<%= link_to "New Status Update", new_status_update_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>User Name</th>
+      <th>Number of Likes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @status_updates.each do |status| %>
+      <tr>
+        <td><%= status.status %></td>
+        <td><%= status.user %></td>
+        <td><%= status.number_of_likes %></td>
+        <td>
+          <%= link_to 'Like', controller: "status_updates", action: "like", id: status %>
+          <%= link_to 'Edit', edit_status_update_path(status) %>
+          <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' }%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
